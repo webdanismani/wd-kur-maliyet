@@ -1,0 +1,32 @@
+/* WD Kur Fiyat – mağaza tarafı */
+.wdkf-notice {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin: 12px 0 16px;
+	padding: 12px 14px;
+	border: 1px solid #ffd8a8;
+	border-radius: 10px;
+	background: #fff8ef;
+	color: #7a4100;
+	font-size: 14px;
+	line-height: 1.45;
+	max-width: 560px;
+}
+.wdkf-notice__dot {
+	flex: 0 0 auto;
+	width: 8px;
+	height: 8px;
+	margin-top: 6px;
+	border-radius: 50%;
+	background: #f76707;
+	box-shadow: 0 0 0 0 rgba(247, 103, 7, .5);
+	animation: wdkf-pulse 1.8s infinite;
+}
+@keyframes wdkf-pulse {
+	0% { box-shadow: 0 0 0 0 rgba(247, 103, 7, .5); }
+	70% { box-shadow: 0 0 0 8px rgba(247, 103, 7, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(247, 103, 7, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .wdkf-notice__dot { animation: none; } }
+.wdkf-rate-note { margin: 6px 0 14px; font-size: 12px; color: #6b6b70; }
