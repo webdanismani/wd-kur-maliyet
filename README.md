@@ -13,8 +13,8 @@ Maliyeti dolar, euro veya sterlin olarak girin. Fiyatlar TCMB kuruna, kâr marj�
 [![Lisans](https://img.shields.io/badge/lisans-GPLv2-blue)](LICENSE)
 [![Ücretsiz](https://img.shields.io/badge/fiyat-ücretsiz-brightgreen)](#)
 
-### 💬 Destek, soru ve öneriler: **[oblifex.com](https://oblifex.com)**
-Türkiye'nin webmaster forumu: WordPress, WooCommerce, sunucu, SEO ve e-ticaret üzerine konuşuyoruz.
+### 💬 Destek ve daha fazla ücretsiz yazılım: **[oblifex.com](https://oblifex.com)**
+Sorularınızı sorabileceğiniz, bu ve benzeri WordPress / WooCommerce yazılımlarını bulabileceğiniz sitemiz.
 
 </div>
 
@@ -82,7 +82,7 @@ fiyat = yuvarla( ( maliyet × kur + ek maliyet ) × (1 + kâr marjı) × (1 + KD
 
 ## Kurulum
 
-1. [Releases](../../releases) sayfasından `wd-kur-fiyat.zip` dosyasını indirin.
+1. Bu sayfadaki yeşil **Code → Download ZIP** düğmesiyle eklentiyi indirin (ya da [oblifex.com](https://oblifex.com)'daki paketi kullanın). Zip'i açmayın.
 2. WordPress panelinde **Eklentiler > Yeni Ekle > Eklenti Yükle** ile zip'i yükleyip etkinleştirin.
 3. **Kur Fiyat > Ayarlar** ekranında para birimlerini, varsayılan marjı, yuvarlamayı ve güvenlik eşiklerini belirleyin.
 4. **Kur Fiyat > Genel Bakış** ekranında **Kurları şimdi güncelle** düğmesine basın.
@@ -112,7 +112,8 @@ Veriler `{prefix}wdkf_rates` (kur geçmişi) ve `{prefix}wdkf_changes` (fiyat ge
 
 ## Destek ve katkı
 
-- 💬 **Soru, hata bildirimi ve öneriler:** [oblifex.com](https://oblifex.com). Forumda konu açın, hem biz hem diğer webmasterlar yardımcı olur.
+- 💬 **Destek, soru ve öneriler:** [oblifex.com](https://oblifex.com). Konu açın, yardımcı olalım. Diğer ücretsiz eklentilerimizi de orada bulabilirsiniz.
+- 🏢 **Geliştirici:** [Web Danışmanı](https://webdanismani.com), webdanismani.com
 - 🐛 Hata bildirimi için GitHub [Issues](../../issues) da kullanılabilir.
 - 🔧 Pull request'lere açığız.
 
@@ -126,6 +127,6 @@ Eklentiyi faydalı bulduysanız repoya ⭐ vermeniz ve [oblifex.com](https://obl
 
 <div align="center">
 
-**[Web Danışmanı](https://webdanismani.com)** tarafından geliştirildi · Topluluk: **[oblifex.com](https://oblifex.com)**
+**[Web Danışmanı](https://webdanismani.com)** tarafından geliştirildi · Destek ve daha fazla yazılım: **[oblifex.com](https://oblifex.com)**
 
 </div>

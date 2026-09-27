@@ -13,7 +13,8 @@ Maliyeti döviz olarak girin; WooCommerce fiyatları TCMB kuruna, kâr marjına 
 
 == Destek ==
 
-Ücretsiz bir eklentidir. Soru, hata bildirimi ve öneriler için Türkiye'nin webmaster forumu oblifex.com'a katılın: https://oblifex.com
+Ücretsiz bir eklentidir. Destek, soru ve öneriler için ve diğer ücretsiz yazılımlarımız için: https://oblifex.com
+Geliştirici: Web Danışmanı – https://webdanismani.com
 
 == Özellikler ==
 

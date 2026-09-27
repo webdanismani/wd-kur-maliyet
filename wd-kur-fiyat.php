@@ -21,15 +21,53 @@ define( 'WDKF_FILE', __FILE__ );
 define( 'WDKF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WDKF_URL', plugin_dir_url( __FILE__ ) );
 define( 'WDKF_SUPPORT_URL', 'https://oblifex.com' );
-define( 'WDKF_REPO_URL', 'https://github.com/webdanismani/wd-kur-fiyat' );
+define( 'WDKF_REPO_URL', 'https://github.com/webdanismani/wd-kur-maliyet' );
 
-require_once WDKF_DIR . 'includes/class-wdkf-settings.php';
-require_once WDKF_DIR . 'includes/class-wdkf-install.php';
-require_once WDKF_DIR . 'includes/class-wdkf-rates.php';
-require_once WDKF_DIR . 'includes/class-wdkf-engine.php';
-require_once WDKF_DIR . 'includes/class-wdkf-product.php';
-require_once WDKF_DIR . 'includes/class-wdkf-frontend.php';
-require_once WDKF_DIR . 'includes/class-wdkf-admin.php';
+// Eksik yükleme koruması: dosyalar eksikse (ör. GitHub web yüklemesinde klasörler atlanmışsa)
+// site çökmez; eklenti çalışmaz ve yöneticiye yeniden kurulum uyarısı gösterilir.
+$wdkf_required = array(
+	'includes/class-wdkf-settings.php',
+	'includes/class-wdkf-install.php',
+	'includes/class-wdkf-rates.php',
+	'includes/class-wdkf-engine.php',
+	'includes/class-wdkf-product.php',
+	'includes/class-wdkf-frontend.php',
+	'includes/class-wdkf-admin.php',
+	'assets/css/admin.css',
+	'assets/css/frontend.css',
+	'assets/js/admin.js',
+	'assets/js/product.js',
+);
+$wdkf_missing  = array();
+foreach ( $wdkf_required as $wdkf_file ) {
+	if ( ! is_readable( WDKF_DIR . $wdkf_file ) ) {
+		$wdkf_missing[] = $wdkf_file;
+	}
+}
+if ( $wdkf_missing ) {
+	add_action(
+		'admin_notices',
+		function () use ( $wdkf_missing ) {
+			if ( ! current_user_can( 'activate_plugins' ) ) {
+				return;
+			}
+			$list = implode( ', ', array_slice( $wdkf_missing, 0, 5 ) ) . ( count( $wdkf_missing ) > 5 ? ' …' : '' );
+			printf(
+				'<div class="notice notice-error"><p><strong>WD Kur Fiyat eksik yüklenmiş, bu yüzden çalıştırılmadı.</strong> Bulunamayan dosyalar: <code>%s</code></p><p>Eklentiyi silip <a href="%s" target="_blank" rel="noopener">GitHub sayfasından</a> (Code → Download ZIP) ya da <a href="%s" target="_blank" rel="noopener">oblifex.com</a> üzerindeki paketle yeniden kurun.</p></div>',
+				esc_html( $list ),
+				esc_url( WDKF_REPO_URL ),
+				esc_url( WDKF_SUPPORT_URL )
+			);
+		}
+	);
+	return;
+}
+foreach ( $wdkf_required as $wdkf_file ) {
+	if ( '.php' === substr( $wdkf_file, -4 ) ) {
+		require_once WDKF_DIR . $wdkf_file;
+	}
+}
+unset( $wdkf_required, $wdkf_missing, $wdkf_file );
 
 register_activation_hook( __FILE__, array( 'WDKF_Install', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'WDKF_Install', 'deactivate' ) );
